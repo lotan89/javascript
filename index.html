@@ -28,17 +28,18 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-// Set URL
-var url = "https://lotan89.carto.com/api/v2/sql?"
-    
-// Set SQL Query
-var sqlQuery = "SELECT tachanaid, the_geom FROM bi";
-
+// Define variables
+var bi_layer = L.layerGroup().addTo(map);
+var url_JSON = "https://michaeldorman.carto.com/api/v2/sql?q=";
+var url_GeoJSON = "https://lotan89.carto.com/api/v2/sql?format=GeoJSON&q=";
+var sql_Query = "SELECT shemtachan FROM bi";
+var bicycle = {};
+		
 // load GeoJSON from CARTO database
-$.getJSON(url + sqlQuery, function(data) {
+$.getJSON(url_GeoJSON + sql_Query, function(data) {
     L.geoJSON(data, {
         onEachFeature: function (feature, layer) {
-            layer.bindPopup(feature.properties.tachanaid);
+            layer.bindPopup(feature.properties.shemtachan);
         }
     }).addTo(map);
 });
