@@ -35,7 +35,7 @@ var sql_Query = "SELECT shemtachan FROM bi";
 var bicycle = {};
 		
 // load GeoJSON from CARTO database
-$.getJSON(url_JSON + sql_Query, function(data) {
+$.getJSON(url_GeoJSON + sql_Query, function(data) {
     L.geoJSON(data, {
         onEachFeature: function (feature, layer) {
             layer.bindPopup(feature.properties.shemtachan);
