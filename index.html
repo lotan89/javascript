@@ -30,7 +30,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 // Define variables
 var url_GeoJSON = "https://lotan89.carto.com/api/v2/sql?format=GeoJSON&q=";
-var sql_Query = "SELECT shemtachan FROM bi";
+var sql_Query = "SELECT shemtachan FROM bi2";
 		
 // load GeoJSON from CARTO database
 $.getJSON(url_GeoJSON + sql_Query, function(data) {
