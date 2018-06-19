@@ -81,6 +81,14 @@
 	   </div>
 		
 		<script>
+			//connect to carto database
+			// define the url
+			var cartoUserName = "lotan89";
+			var url = "https://" + cartoUserName + 
+    				".carto.com/api/v2/sql?format=GeoJSON&q=";
+			// define the aqlquery
+			var sqlQuery = "SELECT shemtachan, the_geom FROM bi_1 LIMIT 25";
+			
 			//creating map object
 			var map = L.map("map", {center: [32.091000, 34.790000], zoom: 12});
 
